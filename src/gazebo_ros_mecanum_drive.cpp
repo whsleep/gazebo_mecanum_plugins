@@ -202,7 +202,7 @@ namespace gazebo
         }
         else
         {
-            wheel_separation_w = sdf->GetElement("WheelSeparationL")->Get<double>();
+            wheel_separation_l = sdf->GetElement("WheelSeparationL")->Get<double>();
         }
         
         wheel_accel_ = 0;
@@ -489,10 +489,10 @@ namespace gazebo
 
     void GazeboRosMecanumDrive::getWheelVelocity()
     {
-        wheel_speed_[LEFT_REAR] = (x_ + y_ - rot_ * (wheel_separation_w + wheel_separation_l) / 2.0) / wheel_diameter_ * 2;
-        wheel_speed_[LEFT_FRONT] = (x_ - y_ - rot_ * (wheel_separation_w + wheel_separation_l) / 2.0) / wheel_diameter_ * 2;
-        wheel_speed_[RIGHT_FRONT] = (x_ + y_ + rot_ * (wheel_separation_w + wheel_separation_l) / 2.0) / wheel_diameter_ * 2;
-        wheel_speed_[RIGHT_REAR] = (x_ - y_ + rot_ * (wheel_separation_w + wheel_separation_l) / 2.0) / wheel_diameter_ * 2;
+        wheel_speed_[LEFT_REAR] = (x_ + y_ - rot_ * (wheel_separation_w + wheel_separation_l)) / wheel_diameter_ * 2;
+        wheel_speed_[LEFT_FRONT] = (x_ - y_ - rot_ * (wheel_separation_w + wheel_separation_l)) / wheel_diameter_ * 2;
+        wheel_speed_[RIGHT_FRONT] = (x_ + y_ + rot_ * (wheel_separation_w + wheel_separation_l)) / wheel_diameter_ * 2;
+        wheel_speed_[RIGHT_REAR] = (x_ - y_ + rot_ * (wheel_separation_w + wheel_separation_l)) / wheel_diameter_ * 2;
     }
     
     void GazeboRosMecanumDrive::QueueThread()
