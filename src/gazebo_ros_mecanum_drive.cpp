@@ -520,8 +520,8 @@ namespace gazebo
         tf::Quaternion qt(pose.Rot().X(), pose.Rot().Y(), pose.Rot().Z(), pose.Rot().W());
         tf::Vector3    vt(pose.Pos().X(), pose.Pos().Y(), pose.Pos().Z());
 
-        tf::Transform base_footprint_to_odom(qt, vt);
-        transform_broadcaster_->sendTransform(tf::StampedTransform(base_footprint_to_odom, current_time, odom_frame, base_footprint_frame));
+        // tf::Transform base_footprint_to_odom(qt, vt);
+        // transform_broadcaster_->sendTransform(tf::StampedTransform(base_footprint_to_odom, current_time, odom_frame, base_footprint_frame));
 
         // publish odom topic
         odom_.pose.pose.position.x = pose.Pos().X();
